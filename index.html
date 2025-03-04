@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Migaja de Oro - Donde cada bocado es un placer</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="assets/img/logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/5483fb23b5.js" crossorigin="anonymous"></script>
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo" data-aos="fade-down">
+            <h1>Migaja de Oro</h1>
+            <br>
+        </div>
+        <div class="menu-icon" id="menuIcon">
+            <i class="fas fa-bars" id="menuBars"></i>
+            <i class="fas fa-times" id="menuClose"></i>
+        </div>
+        <nav id="navMenu">
+            <ul>
+                <li><a href="#inicio" data-aos="fade-down" data-aos-delay="100">Inicio</a></li>
+                <li><a href="#productos" data-aos="fade-down" data-aos-delay="200">Productos</a></li>
+                <li><a href="#nosotros" data-aos="fade-down" data-aos-delay="300">Nosotros</a></li>
+                <li><a href="#pedidos" data-aos="fade-down" data-aos-delay="400">Pedidos en Línea</a></li>
+                <li><a href="#contacto" data-aos="fade-down" data-aos-delay="500">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero" data-aos="fade-up">
+        <h2>Bienvenidos a Migaja de Oro</h2>
+        <p>Disfruta de nuestros deliciosos panes y pasteles recién horneados.</p>
+        <a href="#productos" class="btn" data-aos="fade-up" data-aos-delay="100">Ver Productos</a>
+    </section>
+
+    <section id="productos" class="productos">
+        <h2 data-aos="fade-up">Nuestros Productos</h2>
+        <div class="productos-grid">
+            <!-- Pan de Trigo -->
+            <div class="producto" data-aos="fade-right">
+                <img src="assets/img/pan-trigo.avif" alt="Pan de Trigo">
+                <h3>Pan de Trigo</h3>
+                <p>Pan fresco y saludable.</p>
+                <p class="precio">$2.00</p>
+            </div>
+            <!-- Pan de Centeno -->
+            <div class="producto" data-aos="fade-up">
+                <img src="assets/img/baguets.jfif" alt="Baguette">
+                <h3>Baguette</h3>
+                <p>crujiente y dorada, con un interior ligero y esponjoso. </p>
+                <p class="precio">$2.50</p>
+            </div>
+            <!-- donas -->
+            <div class="producto" data-aos="fade-left">
+                <img src="assets/img/donas.jfif" alt="Donas">
+                <h3>Donas</h3>
+                <p>esponjosas y suaves, con un glaseado irresistible.</p>
+                <p class="precio">$3.00</p>
+            </div>
+            <!-- Muffin -->
+            <div class="producto" data-aos="fade-right">
+                <img src="assets/img/muffins.jfif" alt="Muffin">
+                <h3>Muffins</h3>
+                <p>tierno y húmedo, con un sabor delicioso a vainilla o chocolate.</p>
+                <p class="precio">$1.50</p>
+            </div>
+            <!-- Croissant -->
+            <div class="producto" data-aos="fade-up">
+                <img src="assets/img/croisant.jfif" alt="Croissant">
+                <h3>Croissant</h3>
+                <p>crujiente y hojaldrado, con un sabor a mantequilla irresistible. </p>
+                <p class="precio">$2.00</p>
+            </div>
+            <!-- Pan de Agua -->
+            <div class="producto" data-aos="fade-left">
+                <img src="assets/img/de agua.jfif" alt="Pan de Agua">
+                <h3>Pan de Agua</h3>
+                <p>ligero y esponjoso, con un sabor suave y delicado.</p>
+                <p class="precio">$1.80</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="nosotros" class="nosotros">
+        <h2 data-aos="fade-up">Sobre Nosotros</h2>
+        <p data-aos="fade-up">En Migaja de Oro, nos dedicamos a ofrecer productos de la más alta calidad, elaborados con ingredientes naturales y mucho amor.</p>
+    </section>
+
+    <section id="pedidos" class="pedidos">
+        <h2 data-aos="fade-up">Pedidos en Línea</h2>
+        <p data-aos="fade-up">Realiza tu pedido en línea y recógelo en nuestra panadería.</p>
+        <form id="pedidoForm" data-aos="fade-up">
+            <!-- Lista de productos -->
+            <div class="seleccion-productos">
+                <label for="producto">Selecciona un producto:</label>
+                <select id="producto">
+                    <option value="" disabled selected>Elige un producto</option>
+                    <option value="pan-trigo">Pan de Trigo ($2.00)</option>
+                    <option value="pan-centeno">Baguette ($2.50)</option>
+                    <option value="pan-integral">Donas ($3.00)</option>
+                    <option value="muffin">Muffin ($1.50)</option>
+                    <option value="croissant">Croissant ($2.00)</option>
+                    <option value="pan-agua">Pan de Agua ($1.80)</option>
+                </select>
+                <button type="button" id="agregar-producto">Agregar</button>
+                <div id="lista-productos"></div>
+            </div>
+    
+            <!-- Total -->
+            <div class="total-pedido">
+                <h3>Total: $<span id="total">0.00</span></h3>
+            </div>
+    
+            <!-- Información del cliente -->
+            <input type="text" id="nombre" placeholder="Nombre" required>
+            <input type="text" id="direccion" placeholder="Dirección de entrega" required>
+            <input type="tel" id="telefono" placeholder="Teléfono" required>
+
+            <br>
+    
+            <!-- Botón de enviar -->
+            <button type="submit">Enviar Pedido</button>
+        </form>
+    </section>
+
+    <section id="contacto" class="contacto">
+        <h2 data-aos="fade-up">Contacto</h2>
+        <p data-aos="fade-up">¿Tienes alguna pregunta? ¡Escríbenos!</p>
+        <form id="contactForm">
+            <!-- Campos del formulario -->
+            <input type="text" id="nombreContacto" placeholder="Nombre" required>
+            <input type="email" id="emailContacto" placeholder="Correo Electrónico" required>
+            <textarea id="mensajeContacto" placeholder="Mensaje" required></textarea>
+            <!-- Botón de enviar -->
+            <button type="submit">Enviar Mensaje</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Migaja de Oro. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Contenido de la página -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="assets/js/index.js"></script>
+    <script src="assets/js/pedido.js"></script>
+</body>
+</html>
